@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Jurusan</title>
+    <link rel="stylesheet" href="assets/jurusan.css" />
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <a class="active" href="DashboardAdmin.html">Home</a>
+        <a href="Dataguru.html">Data Guru</a>
+        <a href="Datasiswa.html">Data Siswa</a>
+        <a href="jurusan.html">Jurusan</a>
+        <a href="jadwal.html">Jadwal</a>
+        <a href="Pengumuman.html">Pengumuman</a>
+        <a href="profil.html">Profil</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <main>
+        <div class="header-jurusan">
+            <h1>Data Jurusan</h1>
+            <button id="addJurusanBtn">Tambah Jurusan</button>
+        </div>
+
+        <div class="jurusan-grid" id="jurusanContainer"></div>
+    </main>
+
+
+    <script>
+        const jurusanData = [
+            { nama: "Rekayasa Perangkat Lunak", deskripsi: "Fokus pada pengembangan software dan aplikasi." },
+            { nama: "Teknik Komputer dan Jaringan", deskripsi: "Belajar jaringan komputer, server, dan sistem operasi." },
+            { nama: "Multimedia", deskripsi: "Belajar desain grafis, animasi, dan video editing." }
+        ];
+
+        function renderJurusan() {
+            const container = document.getElementById('jurusanContainer');
+            container.innerHTML = '';
+
+            jurusanData.forEach((jurusan, index) => {
+                const card = document.createElement('div');
+                card.className = 'card-jurusan';
+                card.innerHTML = `
+            <h3>${jurusan.nama}</h3>
+            <p>${jurusan.deskripsi}</p>
+            <div class="actions">
+                <button class="edit" onclick="editJurusan(${index})">Edit</button>
+                <button class="delete" onclick="hapusJurusan(${index})">Hapus</button>
+            </div>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        function editJurusan(index) {
+            const nama = prompt("Edit nama jurusan:", jurusanData[index].nama);
+            const deskripsi = prompt("Edit deskripsi:", jurusanData[index].deskripsi);
+            if (nama && deskripsi) {
+                jurusanData[index] = { nama, deskripsi };
+                renderJurusan();
+            }
+        }
+
+        function hapusJurusan(index) {
+            if (confirm("Yakin ingin menghapus jurusan ini?")) {
+                jurusanData.splice(index, 1);
+                renderJurusan();
+            }
+        }
+
+        document.getElementById('addJurusanBtn').addEventListener('click', () => {
+            const nama = prompt("Masukkan nama jurusan:");
+            const deskripsi = prompt("Masukkan deskripsi jurusan:");
+            if (nama && deskripsi) {
+                jurusanData.push({ nama, deskripsi });
+                renderJurusan();
+            }
+        });
+
+        renderJurusan();
+
+    </script>
+</body>
+
+</html>

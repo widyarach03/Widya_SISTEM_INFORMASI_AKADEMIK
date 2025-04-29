@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Guru</title>
+    <link rel="stylesheet" href="assets/Dataguru.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <a class="active" href="DashboardAdmin.html">Home</a>
+        <a href="Dataguru.html">Data Guru</a>
+        <a href="Datasiswa.html">Data Siswa</a>
+        <a href="jurusan.html">Jurusan</a>
+        <a href="jadwal.html">Jadwal</a>
+        <a href="Pengumuman.html">Pengumuman</a>
+        <a href="profil.html">Profil</a>
+        <a href="landing.html">Logout</a>
+    </div>
+    <div class="container">
+        <header>
+            <h1>Data Guru</h1>
+            <button id="addGuruBtn">Tambah Guru</button>
+        </header>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIP</th>
+                    <th>Jabatan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="guruList">
+                <!-- Data guru akan ditampilkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Contoh data guru
+        const guruData = [
+            { nama: "Dr. Andi Setiawan", nip: "98765", jabatan: "Guru Matematika" },
+            { nama: "Siti Aisyah", nip: "98766", jabatan: "Guru Bahasa Indonesia" },
+            { nama: "Budi Santoso", nip: "98767", jabatan: "Guru Fisika" }
+        ];
+
+        // Menampilkan data guru ke tabel
+        function tampilkanDataGuru() {
+            const guruList = document.getElementById('guruList');
+            guruList.innerHTML = '';
+
+            guruData.forEach((guru, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${guru.nama}</td>
+            <td>${guru.nip}</td>
+            <td>${guru.jabatan}</td>
+            <td>
+                <button class="edit" onclick="editGuru(${index})">Edit</button>
+                <button class="delete" onclick="hapusGuru(${index})">Hapus</button>
+            </td>
+        `;
+
+                guruList.appendChild(row);
+            });
+        }
+
+        // Fungsi untuk mengedit data guru
+        function editGuru(index) {
+            const guru = guruData[index];
+            alert(`Edit Guru: ${guru.nama}`);
+            // Anda bisa menambahkan form untuk mengedit data guru di sini
+        }
+
+        // Fungsi untuk menghapus data guru
+        function hapusGuru(index) {
+            if (confirm("Apakah Anda yakin ingin menghapus guru ini?")) {
+                guruData.splice(index, 1);
+                tampilkanDataGuru(); // Update tampilan tabel setelah data dihapus
+            }
+        }
+
+        // Fungsi untuk menambah data guru (dummy)
+        document.getElementById('addGuruBtn').addEventListener('click', () => {
+            const nama = prompt("Masukkan nama guru:");
+            const nip = prompt("Masukkan NIP guru:");
+            const jabatan = prompt("Masukkan jabatan guru:");
+
+            if (nama && nip && jabatan) {
+                guruData.push({ nama, nip, jabatan });
+                tampilkanDataGuru();
+            }
+        });
+
+        // Menampilkan data guru pertama kali
+        tampilkanDataGuru();
+
+    </script>
+
+</body>
+
+</html>

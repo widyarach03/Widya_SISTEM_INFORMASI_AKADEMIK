@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+}
+body{
+  background-color: #C8E2EA;
+  display: flex;
+}
+
+.sidebar {
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #408FF3;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+.sidebar img {
+  width: 30%;
+  height: 5%;
+  margin-left: 15%;
+}
+
+.sidebar h2{
+  font-size: 20px;
+  margin-left: 50%;
+  margin-top: -20%;
+}
+
+.sidebar a {
+  margin-top: 15%;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+}
+
+.sidebar a.active {
+  background-color: #82c5fc;
+  color: white;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  background-color: #82c5fc;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f0f4f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Judul */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #005f73;
+  }
+  
+  /* Table */
+  .table-nilai {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+  
+  .table-nilai th, .table-nilai td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table-nilai th {
+    background-color: #0a9396;
+    color: white;
+  }
+  
+  /* Form */
+  .form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin: 10px 0 5px;
+  }
+  
+  .form-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .form-container button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #005f73;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0a9396;
+  }
+  
+  /* Tombol Aksi */
+  .btn-edit {
+    background-color: #ffb703;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-edit:hover {
+    background-color: #fb8500;
+  }
+  
+  .btn-delete {
+    background-color: #e63946;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-delete:hover {
+    background-color: #d62828;
+  }

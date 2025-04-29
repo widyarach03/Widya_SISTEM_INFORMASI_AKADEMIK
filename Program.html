@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>program</title>
+    <link rel="stylesheet" href="assets/Program.css">
+</head>
+
+<body>
+    <header>
+        <img src="image/logo_ht1-removebg-preview.png" alt="LogoHT" class="LogoHT" />
+        <h3>SMK HANG TUAH 1 JAKARTA</h3>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="landing.html">Home</a></li>
+            <li><a href="VisiMisi.html">Visi & Misi</a></li>
+            <li><a href="Program.html">Program</a></li>
+            <li><a href="Sarana.html">Sarana</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="grid" id="program-container">
+            <!-- Card program di-generate dari JS -->
+        </div>
+    </div>
+
+    <script>
+        const programKeahlian = [
+            "Akuntansi",
+            "Perkantoran",
+            "Pemasaran",
+            "Desain Komunikasi Visual",
+            "Pengembangan Perangkat Lunak dan Gim"
+        ];
+
+        const container = document.getElementById('program-container');
+
+        programKeahlian.forEach(program => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `<h3>${program}</h3>`;
+            container.appendChild(card);
+        });
+    </script>
+
+</body>
+
+</html>

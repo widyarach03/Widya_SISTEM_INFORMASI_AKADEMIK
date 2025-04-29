@@ -1,0 +1,69 @@
+body.login-page {
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+
+  .login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-box {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .login-logo {
+    width: 70px;
+    margin-bottom: 15px;
+  }
+
+  .school-name {
+    color: #0a3d62;
+    margin-bottom: 5px;
+  }
+
+  .login-subtitle {
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  .login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  .login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0077b6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 7%;
+  }
+
+  .login-form button:hover {
+    background-color: #023e8a;
+  }

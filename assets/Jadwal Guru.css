@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+}
+body{
+    background-color: #C8E2EA;
+    display: flex;
+}
+
+.sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #408FF3;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+.sidebar img {
+    width: 30%;
+    height: 5%;
+    margin-left: 15%;
+}
+
+.sidebar h2{
+    font-size: 20px;
+    margin-left: 50%;
+    margin-top: -20%;
+}
+
+.sidebar a {
+    margin-top: 15%;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+}
+
+.sidebar a.active {
+    background-color: #82c5fc;
+    color: white;
+}
+  
+  /* Style links on mouse-over */
+.sidebar a:hover {
+    background-color: #82c5fc;
+}
+
+main {
+    margin-left: 200px;
+    padding: 20px;
+    width: 100%;
+  }
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .card h2 {
+    margin-bottom: 10px;
+    color: #34495e;
+  }
+  
+  .card ul {
+    list-style: none;
+  }
+  
+  .card ul li {
+    margin: 6px 0;
+    color: #2c3e50;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .edit-btn {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .tambah-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .card table th,
+.card table td {
+  text-align: center;
+}

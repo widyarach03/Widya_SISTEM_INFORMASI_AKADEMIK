@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+  }
+  body{
+    background-color: #C8E2EA;
+    display: flex;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #408FF3;
+    overflow-x: hidden;
+    padding-top: 16px;
+  }
+  .sidebar img {
+    width: 30%;
+    height: 5%;
+    margin-left: 15%;
+  }
+  
+  .sidebar h2{
+    font-size: 20px;
+    margin-left: 50%;
+    margin-top: -20%;
+  }
+  
+  .sidebar a {
+    margin-top: 15%;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
+  
+  .sidebar a.active {
+    background-color: #82c5fc;
+    color: white;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    background-color: #82c5fc;
+  }
+
+  main {
+    margin-left: 200px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profil-container {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .profil-card h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .profil-card p {
+    margin: 6px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .profil-card button {
+    margin-top: 20px;
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .profil-card button:hover {
+    background-color: #e67e22;
+  }
+  

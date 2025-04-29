@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(161, 216, 255);
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.LogoHT {
+    width: 100px;
+    height: auto;
+}
+
+h3 {
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.navbar {
+    background-color: rgb(30, 145, 239);
+    text-align: center;
+    padding: 15px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    background-color: #3ed2ff;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.hero .text {
+    flex: 1;
+}
+
+.hero .text h2 {
+    font-size: 40px;
+    color: #003366;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+
+.hero .text p {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 25%;
+}
+
+.hero img {
+    width: 200px;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+
+.LoginBtn {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: rgb(101, 183, 249);
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    margin-left: 25%;
+}

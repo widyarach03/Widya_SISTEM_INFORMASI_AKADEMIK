@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+  }
+  body{
+    background-color: #C8E2EA;
+    display: flex;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #408FF3;
+    overflow-x: hidden;
+    padding-top: 16px;
+  }
+  .sidebar img {
+    width: 30%;
+    height: 5%;
+    margin-left: 15%;
+  }
+  
+  .sidebar h2{
+    font-size: 20px;
+    margin-left: 50%;
+    margin-top: -20%;
+  }
+  
+  .sidebar a {
+    margin-top: 15%;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
+  
+  .sidebar a.active {
+    background-color: #82c5fc;
+    color: white;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    background-color: #82c5fc;
+  }
+  
+main {
+    margin-left: 200px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .header-pengumuman {
+    background-color: #34495e;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-pengumuman button {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .header-pengumuman button:hover {
+    background-color: #27ae60;
+  }
+  
+  .pengumuman-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .card-pengumuman {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-pengumuman h3 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+  
+  .card-pengumuman p {
+    color: #555;
+    margin: 10px 0;
+    flex-grow: 1;
+  }
+  
+  .card-pengumuman .tanggal {
+    font-size: 13px;
+    color: #888;
+    text-align: right;
+    margin-top: 10px;
+  }
+  

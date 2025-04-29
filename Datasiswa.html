@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Siswa</title>
+    <link rel="stylesheet" href="assets/Datasiswa.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Admin</h2>
+        <a class="active" href="DashboardAdmin.html">Home</a>
+        <a href="Dataguru.html">Data Guru</a>
+        <a href="Datasiswa.html">Data Siswa</a>
+        <a href="jurusan.html">Jurusan</a>
+        <a href="#Jadwal">Jadwal</a>
+        <a href="Pengumuman.html">Pengumuman</a>
+        <a href="profil.html">Profil</a>
+        <a href="login.html">Logout</a>
+    </div> 
+
+    <div class="container">
+        <header>
+            <h1>Data Siswa</h1>
+            <button id="addSiswaBtn">Tambah Siswa</button>
+        </header>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIS</th>
+                    <th>Kelas</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="siswaList">
+                <!-- Data siswa akan ditampilkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Contoh data siswa
+        const siswaData = [
+            { nama: "Ahmad Zaki", nis: "12345", kelas: "X IPA 1" },
+            { nama: "Budi Santoso", nis: "12346", kelas: "X IPA 2" },
+            { nama: "Cici Farida", nis: "12347", kelas: "X IPS 1" }
+        ];
+
+        // Menampilkan data siswa ke tabel
+        function tampilkanDataSiswa() {
+            const siswaList = document.getElementById('siswaList');
+            siswaList.innerHTML = '';
+
+            siswaData.forEach((siswa, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${siswa.nama}</td>
+            <td>${siswa.nis}</td>
+            <td>${siswa.kelas}</td>
+            <td>
+                <button class="edit" onclick="editSiswa(${index})">Edit</button>
+                <button class="delete" onclick="hapusSiswa(${index})">Hapus</button>
+            </td>
+        `;
+
+                siswaList.appendChild(row);
+            });
+        }
+
+        // Fungsi untuk mengedit data siswa
+        function editSiswa(index) {
+            const siswa = siswaData[index];
+            alert(`Edit Siswa: ${siswa.nama}`);
+            // Anda bisa menambahkan form untuk mengedit data siswa di sini
+        }
+
+        // Fungsi untuk menghapus data siswa
+        function hapusSiswa(index) {
+            if (confirm("Apakah Anda yakin ingin menghapus siswa ini?")) {
+                siswaData.splice(index, 1);
+                tampilkanDataSiswa(); // Update tampilan tabel setelah data dihapus
+            }
+        }
+
+        // Fungsi untuk menambah data siswa (dummy)
+        document.getElementById('addSiswaBtn').addEventListener('click', () => {
+            const nama = prompt("Masukkan nama siswa:");
+            const nis = prompt("Masukkan NIS siswa:");
+            const kelas = prompt("Masukkan kelas siswa:");
+
+            if (nama && nis && kelas) {
+                siswaData.push({ nama, nis, kelas });
+                tampilkanDataSiswa();
+            }
+        });
+
+        // Menampilkan data siswa pertama kali
+        tampilkanDataSiswa();
+
+    </script>
+</body>
+
+</html>

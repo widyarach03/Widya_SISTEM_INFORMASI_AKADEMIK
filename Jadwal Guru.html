@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelajaran</title>
+    <link rel="stylesheet" href="assets/Jadwal Guru.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <a class="active" href="DashboardGuru.html">Home</a>
+        <a href="InputNilai.html">Input Nilai</a>
+        <a href="Jadwal Guru.html">Jadwal</a>
+        <a href="Pengumuman Guru.html">Pengumuman</a>
+        <a href="profil guru.html">Profil</a>
+        <a href="landing.html">Logout</a>
+    </div>
+
+    <main>
+    <div class="dashboard-grid">
+
+        <div class="card">
+            <h2>📆 Jadwal Hari Ini</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Hari</th>
+                        <th>Jam</th>
+                        <th>Mata Pelajaran</th>
+                        <th>Guru</th>
+                        <th>Ruangan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="jadwalTbody">
+                    <!-- Data dari JavaScript -->
+                </tbody>
+            </table>
+            <button onclick="tambahJadwal()" class="tambah-btn">+ Tambah Jadwal</button>
+        </div>
+    </main>
+    
+        <script>
+            // Data Dummy
+            const dataJadwal = [
+                { hari: 'Senin', jam: '08:00 - 10:00', mapel: 'Matematika', guru: 'Bu Rina', ruangan: 'Kelas 10 PPLG' },
+                { hari: 'Selasa', jam: '10:00 - 12:00', mapel: 'Bahasa Indonesia', guru: 'Pak Budi', ruangan: 'Kelas 12 PMS' }
+            ];
+
+            function tampilkanJadwal() {
+                const tbody = document.getElementById('jadwalTbody');
+                tbody.innerHTML = '';
+                dataJadwal.forEach((jadwal, index) => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+              <td>${index + 1}</td>
+              <td>${jadwal.hari}</td>
+              <td>${jadwal.jam}</td>
+              <td>${jadwal.mapel}</td>
+              <td>${jadwal.guru}</td>
+              <td>${jadwal.ruangan}</td>
+              <td>
+                <button class="edit-btn" onclick="editJadwal(${index})">Edit</button>
+                <button class="delete-btn" onclick="hapusJadwal(${index})">Hapus</button>
+              </td>
+            `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            function tambahJadwal() {
+                alert("Form tambah jadwal bisa ditambahkan di sini!");
+            }
+
+            function editJadwal(index) {
+                alert("Edit jadwal: " + dataJadwal[index].mapel);
+            }
+
+            function hapusJadwal(index) {
+                if (confirm("Yakin ingin menghapus jadwal ini?")) {
+                    dataJadwal.splice(index, 1);
+                    tampilkanJadwal();
+                }
+            }
+
+            window.onload = tampilkanJadwal;
+
+        </script>
+</body>
+
+</html>

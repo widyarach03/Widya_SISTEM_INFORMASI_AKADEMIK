@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman</title>
+    <link rel="stylesheet" href="assets/Pengumuman guru.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <a class="active" href="DashboardGuru.html">Home</a>
+        <a href="InputNilai.html">Input Nilai</a>
+        <a href="Jadwal Guru.html">Jadwal</a>
+        <a href="Pengumuman Guru.html">Pengumuman</a>
+        <a href="Profil Guru.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+
+    <main>
+        <div class="header-pengumuman">
+            <h1>Pengumuman</h1>
+            <button onclick="tambahPengumuman()">+ Tambah Pengumuman</button>
+        </div>
+
+        <div class="pengumuman-list" id="pengumumanContainer">
+            <!-- Data pengumuman akan di-generate lewat JS -->
+        </div>
+    </main>
+
+    <script>
+        const pengumumanData = [
+            {
+                judul: "Libur Nasional",
+                isi: "Sekolah akan diliburkan pada tanggal 1 Mei untuk memperingati Hari Buruh Internasional.",
+                tanggal: "22 April 2025"
+            },
+            {
+                judul: "Ujian Semester",
+                isi: "Ujian semester genap akan dimulai pada tanggal 13 Mei. Diharapkan semua siswa mempersiapkan diri.",
+                tanggal: "20 April 2025"
+            }
+        ];
+
+        function tampilkanPengumuman() {
+            const container = document.getElementById('pengumumanContainer');
+            container.innerHTML = '';
+
+            pengumumanData.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'card-pengumuman';
+                card.innerHTML = `
+      <h3>${item.judul}</h3>
+      <p>${item.isi}</p>
+      <div class="tanggal">Diumumkan: ${item.tanggal}</div>
+    `;
+                container.appendChild(card);
+            });
+        }
+
+        function tambahPengumuman() {
+            alert("Form tambah pengumuman bisa ditambahkan di sini.");
+        }
+
+        window.onload = tampilkanPengumuman;
+
+    </script>
+</body>
+
+</html>

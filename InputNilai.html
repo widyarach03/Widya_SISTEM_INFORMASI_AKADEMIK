@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nilai</title>
+    <link rel="stylesheet" href="assets/inputNilai.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <a class="active" href="DashboardGuru.html">Home</a>
+        <a href="InputNilai.html">Input Nilai</a>
+        <a href="Jadwal Guru.html">Jadwal</a>
+        <a href="Pengumuman Guru.html">Pengumuman</a>
+        <a href="Profil Guru.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+    <div class="container">
+        <h1>Input Nilai Siswa</h1>
+
+        <table class="table-nilai">
+            <thead>
+                <tr>
+                    <th>Nama Siswa</th>
+                    <th>Mata Pelajaran</th>
+                    <th>Nilai</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="nilai-body">
+                <!-- Data dummy masuk sini lewat JS -->
+            </tbody>
+        </table>
+
+        <div class="form-container" id="form-container">
+            <h2>Tambah / Edit Nilai</h2>
+            <form id="nilai-form">
+                <input type="hidden" id="edit-index" value="">
+
+                <label for="nama">Nama Siswa</label>
+                <input type="text" id="nama" required>
+
+                <label for="mapel">Mata Pelajaran</label>
+                <input type="text" id="mapel" required>
+
+                <label for="nilai">Nilai</label>
+                <input type="number" id="nilai" min="0" max="100" required>
+
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Data Dummy
+        let dataNilai = [
+            { nama: "Andi Saputra", mapel: "Matematika", nilai: 88 },
+            { nama: "Budi Santoso", mapel: "Fisika", nilai: 76 },
+            { nama: "Citra Dewi", mapel: "Kimia", nilai: 92 },
+        ];
+
+        // Tampilkan data ke tabel
+        function renderTable() {
+            const tbody = document.getElementById('nilai-body');
+            tbody.innerHTML = '';
+
+            dataNilai.forEach((item, index) => {
+                const row = `
+      <tr>
+        <td>${item.nama}</td>
+        <td>${item.mapel}</td>
+        <td>${item.nilai}</td>
+        <td>
+          <button class="btn-edit" onclick="editNilai(${index})">Edit</button>
+          <button class="btn-delete" onclick="hapusNilai(${index})">Hapus</button>
+        </td>
+      </tr>
+    `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Tambah/Edit data
+        document.getElementById('nilai-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nama = document.getElementById('nama').value;
+            const mapel = document.getElementById('mapel').value;
+            const nilai = document.getElementById('nilai').value;
+            const editIndex = document.getElementById('edit-index').value;
+
+            if (editIndex === '') {
+                // Tambah baru
+                dataNilai.push({ nama, mapel, nilai });
+            } else {
+                // Edit data
+                dataNilai[editIndex] = { nama, mapel, nilai };
+            }
+
+            this.reset();
+            document.getElementById('edit-index').value = '';
+            renderTable();
+        });
+
+        // Edit nilai
+        function editNilai(index) {
+            const item = dataNilai[index];
+            document.getElementById('nama').value = item.nama;
+            document.getElementById('mapel').value = item.mapel;
+            document.getElementById('nilai').value = item.nilai;
+            document.getElementById('edit-index').value = index;
+        }
+
+        // Hapus nilai
+        function hapusNilai(index) {
+            if (confirm('Yakin mau hapus data ini?')) {
+                dataNilai.splice(index, 1);
+                renderTable();
+            }
+        }
+
+        // Jalankan saat halaman siap
+        document.addEventListener('DOMContentLoaded', renderTable);
+
+    </script>
+</body>
+
+</html>

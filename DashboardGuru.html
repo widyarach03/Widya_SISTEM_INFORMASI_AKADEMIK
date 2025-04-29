@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/Guru.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Siswa</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <a class="active" href="#home">Home</a>
+        <a href="InputNilai.html">Input Nilai</a>
+        <a href="Jadwal Guru.html">Jadwal</a>
+        <a href="Pengumuman Guru.html">Pengumuman</a>
+        <a href="Profil Guru.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+
+    <main>
+        <h1>Dashboard Guru</h1>
+
+        <div class="dashboard-grid">
+
+            <div class="card">
+                <h2>📆 Jadwal Hari Ini</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Hari</th>
+                            <th>Jam</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Guru</th>
+                            <th>Ruangan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwalTbody">
+                        <!-- Data dari JavaScript -->
+                    </tbody>
+                </table>
+                <button onclick="tambahJadwal()" class="tambah-btn">+ Tambah Jadwal</button>
+            </div>
+
+        </div>
+
+        <div class="pengumuman-card">
+            <h3>Pengumuman Hari ini:</h3>
+            <div class="grid-pengumuman">
+                <div class="item">Ujian dimulai<br>20 April 2025</div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+        // Data Dummy
+        const dataJadwal = [
+            { hari: 'Senin', jam: '08:00 - 10:00', mapel: 'Matematika', guru: 'Bu Rina', ruangan: 'Kelas 10 PPLG' },
+            { hari: 'Selasa', jam: '10:00 - 12:00', mapel: 'Bahasa Indonesia', guru: 'Pak Budi', ruangan: 'Kelas 12 PMS' }
+        ];
+
+        function tampilkanJadwal() {
+            const tbody = document.getElementById('jadwalTbody');
+            tbody.innerHTML = '';
+            dataJadwal.forEach((jadwal, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+              <td>${index + 1}</td>
+              <td>${jadwal.hari}</td>
+              <td>${jadwal.jam}</td>
+              <td>${jadwal.mapel}</td>
+              <td>${jadwal.guru}</td>
+              <td>${jadwal.ruangan}</td>
+              <td>
+                <button class="edit-btn" onclick="editJadwal(${index})">Edit</button>
+                <button class="delete-btn" onclick="hapusJadwal(${index})">Hapus</button>
+              </td>
+            `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function tambahJadwal() {
+            alert("Form tambah jadwal bisa ditambahkan di sini!");
+        }
+
+        function editJadwal(index) {
+            alert("Edit jadwal: " + dataJadwal[index].mapel);
+        }
+
+        function hapusJadwal(index) {
+            if (confirm("Yakin ingin menghapus jadwal ini?")) {
+                dataJadwal.splice(index, 1);
+                tampilkanJadwal();
+            }
+        }
+
+        window.onload = tampilkanJadwal;
+
+        const jadwalMengajar = [
+            
+        ];
+
+        const pengumumanSekolah = [
+            { judul: "Rapat Guru", isi: "Rapat pada hari Jumat pukul 13:00." },
+            { judul: "Deadline Input Nilai", isi: "Input nilai sebelum 30 Juni 2025." },
+            { judul: "Libur Semester", isi: "Libur mulai 1 Juli hingga 14 Juli 2025." }
+        ];
+
+        // Fungsi ganti halaman
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // Fungsi tampilkan data dummy
+        function loadDummyData() {
+            // Input Nilai
+            const nilaiBody = document.getElementById('nilai-body');
+            nilaiSiswa.forEach(siswa => {
+                const row = `
+      <tr>
+        <td>${siswa.nama}</td>
+        <td>${siswa.mapel}</td>
+        <td>${siswa.nilai}</td>
+      </tr>
+    `;
+                nilaiBody.innerHTML += row;
+            });
+
+            // Jadwal
+            const jadwalList = document.getElementById('jadwal-list');
+            jadwalMengajar.forEach(item => {
+                const listItem = `<li>${item}</li>`;
+                jadwalList.innerHTML += listItem;
+            });
+
+            // Pengumuman
+            const pengumumanList = document.getElementById('pengumuman-list');
+            pengumumanSekolah.forEach(pengumuman => {
+                const card = `
+      <div class="pengumuman-card">
+        <h3>${pengumuman.judul}</h3>
+        <p>${pengumuman.isi}</p>
+      </div>
+    `;
+                pengumumanList.innerHTML += card;
+            });
+
+            // Profil
+            const profilCard = document.getElementById('profil-card');
+            profilCard.innerHTML = `
+    <p><strong>Nama:</strong> ${profilGuru.nama}</p>
+    <p><strong>NIP:</strong> ${profilGuru.nip}</p>
+    <p><strong>Mata Pelajaran:</strong> ${profilGuru.mapel}</p>
+    <p><strong>Email:</strong> ${profilGuru.email}</p>
+  `;
+        }
+
+        // Jalankan saat halaman pertama kali dibuka
+        document.addEventListener('DOMContentLoaded', loadDummyData);
+
+    </script>
+</body>
+
+</html>

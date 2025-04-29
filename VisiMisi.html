@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi</title>
+    <link rel="stylesheet" href="assets/visi&misi.css">
+</head>
+
+<body>
+    <header>
+        <img src="image/logo_ht1-removebg-preview.png" alt="LogoHT" class="LogoHT" />
+        <h3>SMK HANG TUAH 1 JAKARTA</h3>
+      </header>
+    
+      <nav class="navbar">
+        <ul>
+          <li><a href="landing.html">Home</a></li>
+          <li><a href="VisiMisi.html">Visi & Misi</a></li>
+          <li><a href="Program.html">Program</a></li>
+          <li><a href="Sarana.html">Sarana</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav> 
+
+    <div class="container" id="visi-misi-container">
+        <!-- Konten akan diisi via JavaScript -->
+    </div>
+
+    <script>
+        const visi = "Terwujudnya lulusan SMK Hang Tuah 1 Jakarta yang Nasionalis, Religius, Mandiri, Kompeten, Juara, Berjiwa Bahari, dan Berwawasan Global sehingga Mampu BMW (Bekerja, Melanjutkan Kuliah dan Wirausaha).";
+
+        const misi = [
+            "Menyelenggarakan pendidikan yang berorientasi untuk membentuk karakter peserta didik yang Nasionalis, Religius, Mandiri, Kompeten, dan Juara",
+            "Membekali peserta didik dengan IMTAQ & IPTEK, jiwa bahari dan wawasan global",
+            "Meningkatkan mutu pendidik, tenaga kependidikan, sarana/prasrana sekolah, dan manajemen sekolah unluk meningkatkan pelayananyan yang unggul",
+            "Meningkatkan kolaborasi dengan mitra industri dan pemangku kepentingan lainnya dalam mendukung program-program sekolah",
+            "Memfasilitasi peserla didik agar Mampu BMW (Bekeria, Melanjulkan Kuliah atau Wirasuaha)"
+        ];
+
+        const container = document.getElementById("visi-misi-container");
+
+        const visiCard = `
+                <div class="card">
+                    <h2>Visi</h2>
+                    <p>${visi}</p>
+                </div>
+        `;
+
+        const misiItems = misi.map(item => `<li>${item}</li>`).join("");
+
+        const misiCard = `
+            <div class="card">
+                <h2>Misi</h2>
+                <ul class="misi-list">
+                ${misiItems}
+                </ul>
+            </div>
+        `;
+
+        container.innerHTML = visiCard + misiCard;
+    </script>
+</body>
+
+</html>

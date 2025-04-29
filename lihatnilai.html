@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Nilai</title>
+    <link rel="stylesheet" href="assets/lihatnilai.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Siswa</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Ayu</h2>
+        <a class="active" href="Dashboardsiswa.html">Home</a>
+        <a href="lihatnilai.html">Lihat Nilai</a>
+        <a href="jadwal copy.html">Jadwal</a>
+        <a href="Pengumuman copy.html">Pengumuman</a>
+        <a href="profil copy.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+
+    <main>
+        <div class="rapot-header">
+          <h1>Rapor Bayangan</h1>
+        </div>
+    
+        <div class="rapot-list" id="rapotContainer">
+          <!-- Kartu rapot akan diisi oleh JS -->
+        </div>
+      </main>
+    
+    
+      <script src="nilai.js"></script>
+    <script>
+        const rapotData = [
+            {
+                nama: "Ayu",
+                kelas: "XII IPA 1",
+                file: "image/rapot-dewi.pdf"
+            },
+        ];
+
+        function tampilkanRapot() {
+            const container = document.getElementById('rapotContainer');
+            container.innerHTML = '';
+
+            rapotData.forEach((rapot) => {
+                const card = document.createElement('div');
+                card.className = 'card-rapot';
+                card.innerHTML = `
+      <h3>${rapot.nama}</h3>
+      <p>Kelas: ${rapot.kelas}</p>
+      <button onclick="lihatPDF('${rapot.file}')">Lihat Nilai</button>
+    `;
+                container.appendChild(card);
+            });
+        }
+
+        function lihatPDF(file) {
+            window.open(file, '_blank');
+        }
+
+        window.onload = tampilkanRapot;
+
+    </script>
+</body>
+
+</html>

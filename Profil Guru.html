@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Pengguna</title>
+  <link rel="stylesheet" href="assets/Profil Guru.css">
+</head>
+<body>
+
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Guru</h2>
+        <a class="active" href="DashboardGuru.html">Home</a>
+        <a href="InputNilai.html">Input Nilai</a>
+        <a href="Jadwal Guru.html">Jadwal</a>
+        <a href="Pengumuman Guru.html">Pengumuman</a>
+        <a href="Profil Guru.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+  <main>
+    <div class="profil-container">
+      <div class="profil-card">
+        <img src="image/user.png" alt="Foto Profil" class="avatar">
+        <h2 id="nama">Nama Pengguna</h2>
+        <p><strong>Username:</strong> <span id="username">username123</span></p>
+        <p><strong>Email:</strong> <span id="email">email@example.com</span></p>
+        <p><strong>Peran:</strong> <span id="role">Siswa</span></p>
+        <p><strong>Alamat:</strong> <span id="alamat">Jl. Contoh No. 123</span></p>
+        <button onclick="editProfil()">Edit Profil</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="profil.js"></script>
+</body>
+</html>

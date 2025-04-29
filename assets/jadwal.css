@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+}
+body{
+    background-color: #C8E2EA;
+    display: flex;
+}
+
+.sidebar {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #408FF3;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+.sidebar img {
+    width: 30%;
+    height: 5%;
+    margin-left: 15%;
+}
+
+.sidebar h2{
+    font-size: 20px;
+    margin-left: 50%;
+    margin-top: -20%;
+}
+
+.sidebar a {
+    margin-top: 15%;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+}
+
+.sidebar a.active {
+    background-color: #82c5fc;
+    color: white;
+}
+  
+  /* Style links on mouse-over */
+.sidebar a:hover {
+    background-color: #82c5fc;
+}
+
+  main {
+    margin-left: 200px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .header-jadwal {
+    background-color: #34495e;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-jadwal button {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .header-jadwal button:hover {
+    background-color: #27ae60;
+  }
+  
+  .table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #408FF3;
+    color: white;
+  }
+  
+  td button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: #f39c12;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+  }
+  
+  .edit-btn:hover {
+    background-color: #e67e22;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  

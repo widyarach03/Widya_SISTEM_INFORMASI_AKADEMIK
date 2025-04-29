@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard siswa</title>
+    <link rel="stylesheet" href="assets/siswa.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="image/user.png" alt="user">
+        <h2>Siswa</h2>
+        <hr>
+    </header>
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <img src="image/user.png" alt="user">
+        <h2>Siswa</h2>
+        <a class="active" href="#home">Home</a>
+        <a href="lihatnilai.html">Lihat Nilai</a>
+        <a href="jadwal copy.html">Jadwal</a>
+        <a href="Pengumuman copy.html">Pengumuman</a>
+        <a href="profil copy.html">Profil</a>
+        <a href="loading.html">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Dashboard Siswa</h1>
+
+        <div class="dashboard-grid">
+
+            <div class="card">
+                <h2>📆 Jadwal Hari Ini</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Hari</th>
+                            <th>Jam</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Guru</th>
+                            <th>Ruangan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwalTbody">
+                        <!-- Data dari JavaScript -->
+                    </tbody>
+                </table>
+                <button onclick="tambahJadwal()" class="tambah-btn">+ Tambah Jadwal</button>
+            </div>
+
+            <div class="card">
+                <h2>📝 Nilai Terakhir</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Mata Pelajaran</th>
+                      <th>Nilai</th>
+                      <th>Guru</th>
+                    </tr>
+                  </thead>
+                  <tbody id="nilaiTbody">
+                    <!-- Data dari JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+
+        <div class="pengumuman-card">
+            <h3>Pengumuman Hari ini:</h3>
+            <div class="grid-pengumuman">
+                <div class="item">Ujian dimulai<br>20 April 2025</div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+                <div class="item empty"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const dataJadwal = [
+            { hari: 'Senin', jam: '07:00 - 08:30', mapel: 'Matematika', guru: 'Bu Rina', ruangan: 'Kelas 10 IPA' },
+            { hari: 'Selasa', jam: '08:30 - 10:00', mapel: 'Bahasa Indonesia', guru: 'Pak Budi', ruangan: 'Kelas 10 IPA' }
+        ];
+
+        function tampilkanJadwal() {
+            const tbody = document.getElementById('jadwalTbody');
+            tbody.innerHTML = '';
+            dataJadwal.forEach((jadwal, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+              <td>${index + 1}</td>
+              <td>${jadwal.hari}</td>
+              <td>${jadwal.jam}</td>
+              <td>${jadwal.mapel}</td>
+              <td>${jadwal.guru}</td>
+              <td>${jadwal.ruangan}</td>
+              <td>
+                <button class="edit-btn" onclick="editJadwal(${index})">Edit</button>
+                <button class="delete-btn" onclick="hapusJadwal(${index})">Hapus</button>
+              </td>
+            `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function tambahJadwal() {
+            alert("Form tambah jadwal bisa ditambahkan di sini!");
+        }
+
+        function editJadwal(index) {
+            alert("Edit jadwal: " + dataJadwal[index].mapel);
+        }
+
+        function hapusJadwal(index) {
+            if (confirm("Yakin ingin menghapus jadwal ini?")) {
+                dataJadwal.splice(index, 1);
+                tampilkanJadwal();
+            }
+        }
+
+        window.onload = tampilkanJadwal;
+
+
+        const nilaiTerakhir = [
+            { mapel: 'Matematika', nilai: 88, guru: 'Bu Rina' },
+            { mapel: 'Bahasa Inggris', nilai: 90, guru: 'Pak Andi' },
+            { mapel: 'Informatika', nilai: 95, guru: 'Bu Sari' }
+        ];
+
+        function tampilkanNilai() {
+            const tbody = document.getElementById('nilaiTbody');
+            tbody.innerHTML = '';
+            nilaiTerakhir.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${item.mapel}</td>
+      <td>${item.nilai}</td>
+      <td>${item.guru}</td>
+    `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        window.onload = function () {
+            tampilkanJadwal();
+            tampilkanNilai();
+        };
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Pengguna</title>
+  <link rel="stylesheet" href="assets/profil.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="image/user.png" alt="user">
+    <h2>Siswa</h2>
+    <hr>
+</header>
+<!-- The sidebar -->
+<div class="sidebar">
+    <img src="image/user.png" alt="user">
+    <h2>Siswa</h2>
+    <a class="active" href="#home">Home</a>
+    <a href="lihatnilai.html">Lihat Nilai</a>
+    <a href="jadwal copy.html">Jadwal</a>
+    <a href="Pengumuman.html">Pengumuman</a>
+    <a href="profil copy.html">Profil</a>
+    <a href="landing.html">Logout</a>
+</div>
+  <main>
+    <div class="profil-container">
+      <div class="profil-card">
+        <img src="image/user.png" alt="Foto Profil" class="avatar">
+        <h2 id="nama">Nama Pengguna</h2>
+        <p><strong>Username:</strong> <span id="username">username123</span></p>
+        <p><strong>Email:</strong> <span id="email">email@example.com</span></p>
+        <p><strong>Peran:</strong> <span id="role">Siswa</span></p>
+        <p><strong>Alamat:</strong> <span id="alamat">Jl. Contoh No. 123</span></p>
+        <button onclick="editProfil()">Edit Profil</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="profil.js"></script>
+</body>
+</html>
