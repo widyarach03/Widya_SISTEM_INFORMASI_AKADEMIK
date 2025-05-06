@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan</title>
+  <link rel="stylesheet" href="assets/Pengaturan.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Pengaturan</h2>
+
+    <div class="setting-item">
+      <label for="username">Nama Pengguna:</label>
+      <input type="text" id="username" placeholder="Masukkan nama Anda">
+    </div>
+
+    <div class="setting-item">
+      <label for="themeToggle">Tema:</label>
+      <select id="themeToggle">
+        <option value="light">Terang</option>
+        <option value="dark">Gelap</option>
+      </select>
+    </div>
+
+    <button id="saveBtn">Simpan</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usernameInput = document.getElementById('username');
+      const themeToggle = document.getElementById('themeToggle');
+      const saveBtn = document.getElementById('saveBtn');
+
+      // Load dari localStorage
+      const savedUsername = localStorage.getItem('username');
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedUsername) usernameInput.value = savedUsername;
+      if (savedTheme) {
+        themeToggle.value = savedTheme;
+        applyTheme(savedTheme);
+      }
+
+      // Tombol Simpan
+      saveBtn.addEventListener('click', () => {
+        const username = usernameInput.value;
+        const theme = themeToggle.value;
+
+        localStorage.setItem('username', username);
+        localStorage.setItem('theme', theme);
+
+        applyTheme(theme);
+        alert("Pengaturan berhasil disimpan!");
+      });
+
+      // Fungsi ganti tema
+      function applyTheme(theme) {
+        document.body.classList.toggle('dark', theme === 'dark');
+      }
+    });
+
+  </script>
+</body>
+
+</html>
